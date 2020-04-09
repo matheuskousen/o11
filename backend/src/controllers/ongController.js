@@ -2,24 +2,26 @@ const connection = require("../db/connection");
 const crypto = require("crypto");
 module.exports = {
   async index(request, response) {
-    const ongs = await connection("ongs").select("*");
-    return response.json(ongs);
+    const ong = await connection("ong").select("*");
+    return response.json(ong);
   },
 
   async create(request, response) {
-    const { name, email, whatsapp, city, uf } = request.body;
-
+    const { name, whatsapp, city, uf, email, senha } = request.body;
     const id = crypto.randomBytes(4).toString("HEX");
+    // const senha = crypto.randomBytes(9).toString("BCRYPT");
 
     // connection to banco de base
-    await connection("ongs").insert({
+    await connection("ong").insert({
       id,
       name,
       email,
+      senha,
       whatsapp,
       city,
-      uf
+      uf,
     });
+    console.log(senha);
     return response.json({ id });
-  }
+  },
 };

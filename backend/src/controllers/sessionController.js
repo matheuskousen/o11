@@ -4,9 +4,11 @@ const connection = require("../db/connection");
 
 module.exports = {
   async create(request, response) {
-    const { id } = request.body;
-    const ong = await connection("ongs")
-      .where("id", id)
+    const { email, senha } = request.body;
+
+    const ong = await connection("ong")
+      .where("email", email)
+      .where("senha", senha)
       .select("name")
       .first();
 
@@ -14,5 +16,5 @@ module.exports = {
       return response.status(400).json({ error: "No ONG Found with this ID" });
     }
     return response.json(ong);
-  }
+  },
 };
