@@ -1,0 +1,34 @@
+@media(max-width:768px){
+    .newincident{
+        width: 100%;
+        max-width: 1120px;
+        min-height: 100vh;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    
+    }
+    
+    .newincident .content {
+        flex-direction: column;
+        width: 90%;
+        justify-content: center !important;
+        align-items: center  !important;
+        margin-top: 230px !important;
+        padding: 1em 24px !important;
+    }
+    .newincident .content section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .newincident .content section img {
+        width: 200px;
+        height: 100%;
+       margin-top:60px;
+    }
+    
+}
